@@ -1,0 +1,65 @@
+{{>partials/header}}
+
+<div class=container>
+
+    <div class=form-box>
+        <form method=POST action=/newItem>
+            <h2>Push()</h2>
+            <div class=inputs>
+                <input class=text-field type=text name=item placeholder="Write Something...">
+                
+                <input type=submit value=Submit>
+            </div>
+        </form>
+        <form method=POST action=/newItem1>
+            <h2>Unshift()</h2>
+            <div class=inputs>
+                <input class=text-field type=text name=item placeholder="Write Something...">
+                
+                <input type=submit value=Submit>
+            </div>
+        </form>
+        <form method=POST action=/removeItem>
+            <h2>Splice()</h2>
+            <div class=inputs>
+                <select name=options>
+                    {{#item}}
+                        <option value={{pos}}>{{name}}</option>
+                    {{/item}}
+                </select>
+                <input type=submit value=Submit>
+            </div>
+        </form>
+        <form method=POST action=/removeRange>
+            <h2>Deleting a range with Splice()</h2>
+            <div class=inputs>
+                <div style="display:flex;flex-direction:column">
+                    <select name=start>
+                        {{#item}}
+                            <option value={{pos}}>{{name}}</option>
+                        {{/item}}
+                    </select>
+                    <select name=end>
+                        {{#item}}
+                            <option value={{pos}}>{{name}}</option>
+                        {{/item}}
+                    </select>
+                </div>
+                <input type=submit value=Submit>
+            </div>
+
+        </form>
+    </div>
+
+    <div class=array-display>
+        {{#item}}
+            <div class=item-list>
+                <li>{{pos}} - {{name}}</li>
+            </div>
+        {{/item}}
+    </div>
+
+</div>
+
+
+{{>partials/footer}}
